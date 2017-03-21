@@ -1,18 +1,15 @@
-let webpack = require('webpack');
+var webpack = require('webpack');
+
 module.exports = {
   entry: [
-    // using script loader below (script!)
     'script!jquery/dist/jquery.min.js',
     'script!foundation-sites/dist/foundation.min.js',
     './app/app.jsx'
   ],
-  externals:{
-    'jquery': 'jQuery'
+  externals: {
+    jquery: 'jQuery'
   },
   plugins: [
-    // specifying below that when we use $ in our code
-    // , we wanna use jquery
-    // and when we type jQuery as well
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
@@ -43,5 +40,5 @@ module.exports = {
       }
     ]
   },
-  devtool: 'inline-source-map'
+  devtool: 'cheap-module-eval-source-map'
 };

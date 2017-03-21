@@ -1,7 +1,7 @@
 let React = require('react');
 let { Link, IndexLink } = require('react-router');
 
-let Navigation = () => {
+let Nav = () => {
     return (
         <div className="top-bar">
            <div className="top-bar-left">
@@ -29,4 +29,4 @@ let Navigation = () => {
     );
 };  
 
-module.exports = Navigation
+module.exports = Nav;
