@@ -10,3 +10,9 @@
     display:inline;
     padding: 0;
 }
+
+.top-bar  {
+    .active-link {
+        font-weight: $clicked-link-style;
+    }
+}
