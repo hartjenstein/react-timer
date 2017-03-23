@@ -1,9 +1,8 @@
-let React = require('react');
+import React from 'react';
 
 
-let Timer = React.createClass({
-  
-render: function () {
+class Timer extends React.Component {  
+render() {
     return (
       <div>
         <p>Timer</p>
@@ -11,6 +10,6 @@ render: function () {
     
     );
   }
-});
+}
 
-module.exports = Timer;
+export default Timer;

@@ -1,9 +1,9 @@
-let React = require('react');
-let ReactDOM = require('react-dom');
-let {Route, Router, IndexRoute, hashHistory} = require('react-router');
-let Main = require('Main');
-let Countdown = require('Countdown');
-let Timer = require('Timer');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import  {Route, Router, IndexRoute, hashHistory}from 'react-router';
+import {Main} from 'Main';
+import {Countdown} from 'Countdown';
+import {Timer} from 'Timer';
 
 // load foundation
 //using style and css loader chained together (style!css!)

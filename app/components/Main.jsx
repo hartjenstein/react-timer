@@ -1,7 +1,8 @@
-let React = require('react');
-let Nav = require('Nav');
+import React from 'react';
+import {Nav} from 'Nav';
 
-let Main = (props) => {
+class Main extends React.Component {
+  render() {
     return (
       <div>
         <div>
@@ -13,6 +14,7 @@ let Main = (props) => {
         </div>
       </div>
     );
-};
+  }
+}
 
-module.exports = Main;
+export default Main;

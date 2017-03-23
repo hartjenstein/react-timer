@@ -1,7 +1,8 @@
-let React = require('react');
+import React from 'react';
 
 
-let Clock = React.createClass({
+class Clock extends React.Component{
+
   formatSeconds(totalSeconds){
       // grab the remainder thats left after dividing by sixty
     let seconds = totalSeconds % 60;
@@ -14,8 +15,8 @@ let Clock = React.createClass({
       minutes = '0' + minutes;
     } 
     return minutes + ':' + seconds; 
-  },    
-render: function () {
+  }    
+render() {
   let {totalSeconds} = this.props;  
     return (
       <div className="clock">
@@ -27,6 +28,6 @@ render: function () {
     
     );
   }
-});
+}
 
 module.exports = Clock;
