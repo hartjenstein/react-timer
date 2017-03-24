@@ -3,8 +3,13 @@ let ReactDOM = require('react-dom');
 let expect = require('expect');
 let $ = require('jQuery');
 let TestUtils = require('react-addons-test-utils');
+/*import expect from 'expect';
+import react from 'react';
+import reactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+import $ from 'jQuery';*/
 
-let Clock = require('Clock');
+import {Clock} from 'Clock';
 
 describe('Clock', () => {
     it('should exist', () => {

@@ -1,15 +1,16 @@
 import React from 'react';
 import {Nav} from 'Nav';
 
-class Main extends React.Component {
+export class Main extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <div>
-            <Nav/>
+        <Nav/>
+        <div className="row">
+          <div className="column small-centered medium-6 large-4">
+            
            <p>Main.jsx rendered</p> 
-           {props.children}
+           {this.props.children}
           </div>
         </div>
       </div>
@@ -17,4 +18,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+

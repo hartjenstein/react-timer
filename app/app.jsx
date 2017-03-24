@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import  {Route, Router, IndexRoute, hashHistory}from 'react-router';
+import  {Route, Router, IndexRoute, hashHistory} from 'react-router';
 import {Main} from 'Main';
 import {Countdown} from 'Countdown';
 import {Timer} from 'Timer';

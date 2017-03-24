@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, IndexLink } from'react-router';
 
-class Nav extends React.Component {
+export class Nav extends React.Component {
     render() {
         return (
             <div className="top-bar">
@@ -17,8 +17,8 @@ class Nav extends React.Component {
                          <Link to="/countdown" activeClassName="active-link">Countdown</Link>
                         </li>
 
-                        </ul>
-                        </div> 
+                      </ul>
+                    </div> 
                 <div className="top-bar-right">
                     <ul className="menu">
                          <li className="menu-text">
@@ -31,4 +31,4 @@ class Nav extends React.Component {
     }  
 }
 
-export default Nav;
+    
