@@ -33,7 +33,7 @@ export class Countdown extends React.Component {
       countdownStatus: 'started'
     });
   }
-  
+
   render() {
     let {count} = this.state;
     return (

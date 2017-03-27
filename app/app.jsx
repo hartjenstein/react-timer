@@ -4,6 +4,7 @@ import  {Route, Router, IndexRoute, hashHistory} from 'react-router';
 import {Main} from 'Main';
 import {Countdown} from 'Countdown';
 import {Timer} from 'Timer';
+import {Controls} from 'Controls';
 
 // load foundation
 //using style and css loader chained together (style!css!)
