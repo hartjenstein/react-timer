@@ -9,9 +9,12 @@ export class Controls extends React.Component {
       this.props.onStatusChange(newStatus);
     };
   }
+  componentWillReceiveProps(newProps){
+    console.log('componentWillReceiveProps', newProps.countdownStatus);
+  }
   render() {
-    var {countdownStatus} = this.props;
-    var renderStartStopButton = () => {
+    let {countdownStatus} = this.props;
+    let renderStartStopButton = () => {
       if (countdownStatus === 'started') {
         return <button className="button secondary" onClick={this.onStatusChange('paused').bind(this)}>Pause</button>;
       } else if (countdownStatus === 'paused') {
