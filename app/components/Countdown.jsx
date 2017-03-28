@@ -11,14 +11,12 @@ export class Countdown extends React.Component {
       countdownStatus: 'stopped'
     };
   }
-  componentDidUpdate(prevProps, prevState){
-    if(this.state.countdownStatus !== prevState.countdownStatus){
-      switch(this.state.countdownStatus) {
-        case 'started': 
-        this.startTimer();
-        break;  
-        // since we are not using break on the second case,
-        // it will fire for both stopped and paused
+ componentDidUpdate(prevProps, prevState) {
+    if (this.state.countdownStatus !== prevState.countdownStatus) {
+      switch (this.state.countdownStatus) {
+        case 'started':
+          this.startTimer();
+          break;
         case 'stopped':
           this.setState({count: 0});
         case 'paused':
@@ -30,7 +28,7 @@ export class Countdown extends React.Component {
   }
   startTimer() {
     this.timer = setInterval(() => {
-      let newCount = this.state.count -1;
+      var newCount = this.state.count - 1;
       this.setState({
         count: newCount >= 0 ? newCount : 0
       });
@@ -42,28 +40,24 @@ export class Countdown extends React.Component {
       countdownStatus: 'started'
     });
   }
-
   handleStatusChange(newStatus) {
-    this.setState({
-      countdownStatus: newStatus
-    });
+    this.setState({countdownStatus: newStatus});
   }
   render() {
-    let {count, countdownStatus} = this.state;
-
-    let renderControlArea = () => {
+    var {count, countdownStatus} = this.state;
+    var renderControlArea = () => {
       if (countdownStatus !== 'stopped') {
         return <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange.bind(this)}/>;
       } else {
-        <CountdownForm onSetCountdown={this.handleSetCountdown.bind(this)}/>;
-      } 
+        return <CountdownForm onSetCountdown={this.handleSetCountdown.bind(this)}/>;
+      }
     };
+
     return (
       <div>
-        <Clock totalSeconds={this.state.count}/> 
+        <Clock totalSeconds={count}/>
         {renderControlArea()}
       </div>
-    
     );
   }
 }
