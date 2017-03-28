@@ -34,5 +34,5 @@ export class Controls extends React.Component {
 Controls.propTypes = {
     countdownStatus: React.PropTypes.string.isRequired,
     onStatusChange: React.PropTypes.func.isRequired
-
+    
 };
