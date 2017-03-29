@@ -9,8 +9,7 @@ export class Timer extends React.Component {
     super(props);
     this.state = {
       count: 0,
-      timerStatus: 'stopped',
-      endCount: 0
+      timerStatus: 'stopped'
     };
   }
  componentDidUpdate(prevProps, prevState) {
@@ -38,23 +37,9 @@ export class Timer extends React.Component {
       this.setState({
         count: newCount >= 0 ? newCount : 0
       });
-      if(newCount === 0) {
-        this.setState({
-          timerStatus: 'stopped'
-        });
-      } else if (newCount === this.state.endCount){
-        this.setState({
-          timerStatus: 'stopped'
-        });
-      }
     }, 1000);
   }
-  handleSetCountdown(seconds) {
-    this.setState({
-      count: 0,
-      timerStatus: 'started',
-    });
-  }
+
   handleStatusChange(newStatus) {
     this.setState({
       timerStatus: newStatus
@@ -62,7 +47,6 @@ export class Timer extends React.Component {
   }
 
   render() {
-    //let {endCount} = this.props;
     let {count, timerStatus} = this.state;
    
 
