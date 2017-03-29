@@ -32,7 +32,7 @@ export class Countdown extends React.Component {
   }
   startTimer() {
     this.timer = setInterval(() => {
-      var newCount = this.state.count - 1;
+      let newCount = this.state.count - 1;
       this.setState({
         count: newCount >= 0 ? newCount : 0
       });
@@ -54,8 +54,8 @@ export class Countdown extends React.Component {
   }
 
   render() {
-    var {count, countdownStatus} = this.state;
-    var renderControlArea = () => {
+    let {count, countdownStatus} = this.state;
+    let renderControlArea = () => {
       if (countdownStatus !== 'stopped') {
         return <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange.bind(this)}/>;
       } else {

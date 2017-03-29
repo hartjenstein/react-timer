@@ -3,19 +3,19 @@ import {Clock} from 'Clock';
 import {CountdownForm} from 'CountdownForm';
 import {Controls} from 'Controls';
 
-
 export class Timer extends React.Component { 
   
  constructor(props){
     super(props);
     this.state = {
       count: 0,
-      countdownStatus: 'stopped'
+      timerStatus: 'stopped',
+      endCount: 0
     };
   }
  componentDidUpdate(prevProps, prevState) {
-    if (this.state.countdownStatus !== prevState.countdownStatus) {
-      switch (this.state.countdownStatus) {
+    if (this.state.timerStatus !== prevState.timerStatus) {
+      switch (this.state.timerStatus) {
         case 'started':
           this.startTimer();
           break;
@@ -34,42 +34,43 @@ export class Timer extends React.Component {
   }
   startTimer() {
     this.timer = setInterval(() => {
-      var newCount = this.state.count + 1;
+      let newCount = this.state.count + 1;
       this.setState({
         count: newCount >= 0 ? newCount : 0
       });
       if(newCount === 0) {
         this.setState({
-          countdownStatus: 'stopped'
+          timerStatus: 'stopped'
+        });
+      } else if (newCount === this.state.endCount){
+        this.setState({
+          timerStatus: 'stopped'
         });
       }
     }, 1000);
   }
   handleSetCountdown(seconds) {
     this.setState({
-      count: seconds,
-      countdownStatus: 'started'
+      count: 0,
+      timerStatus: 'started',
     });
   }
   handleStatusChange(newStatus) {
-    this.setState({countdownStatus: newStatus});
+    this.setState({
+      timerStatus: newStatus
+    });
   }
 
   render() {
-    var {count, countdownStatus} = this.state;
-    var renderControlArea = () => {
-      if (countdownStatus !== 'stopped') {
-        return <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange.bind(this)}/>;
-      } else {
-        return <CountdownForm onSetCountdown={this.handleSetCountdown.bind(this)}/>;
-      }
-    };
+    //let {endCount} = this.props;
+    let {count, timerStatus} = this.state;
+   
 
     return (
       <div>
         <h1 className="page-title">Timer App</h1>
         <Clock totalSeconds={count}/>
-        {renderControlArea()}
+        <Controls countdownStatus={timerStatus} onStatusChange={this.handleStatusChange.bind(this)}/>;
       </div>
     );
   }
