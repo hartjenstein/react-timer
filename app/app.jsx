@@ -7,8 +7,6 @@ import {Timer} from 'Timer';
 
 
 // load foundation
-//using style and css loader chained together (style!css!)
-require ('style!css!foundation-sites/dist/foundation.min.css');
 $(document).foundation();
 
 // App css
