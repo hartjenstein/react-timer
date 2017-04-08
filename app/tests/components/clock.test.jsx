@@ -1,48 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-let expect = require('expect');
-let $ = require('jQuery');
-let TestUtils = require('react-addons-test-utils');
-/*import expect from 'expect';
-import react from 'react';
-import reactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-import $ from 'jQuery';*/
+var React = require('react');
+var ReactDOM = require('react-dom');
+var expect = require('expect');
+var $ = require('jQuery');
+var TestUtils = require('react-addons-test-utils');
 
-import {Clock} from 'Clock';
+var Clock = require('Clock');
 
 describe('Clock', () => {
-    it('should exist', () => {
-        expect(Clock).toExist();
+  it('should exist', () => {
+    expect(Clock).toExist();
+  });
+
+  describe('render', () => {
+    it('should render clock to output', () => {
+      let clock = TestUtils.renderIntoDocument(<Clock totalSeconds={62}/>);
+      //$(ReactDOM.findDOMNode(clock)) converts component into actuall HTML which is rendered to the browser
+      // then we pass that to
+      let $el $(ReactDOM.findDOMNode(clock));
+      actualText = $el.find('.clock-text').text();
+    });
+  })
+  describe('formatSeconds', () => {
+    it('should format seconds', () => {
+      var clock = TestUtils.renderIntoDocument(<Clock/>);
+      var seconds = 615;
+      var expected = '10:15';
+      var actual = clock.formatSeconds(seconds);
+
+      expect(actual).toBe(expected);
     });
 
-    describe('render', () => {
-        it('It schould render clock to output', () => {
-            let clock = TestUtils.renderIntoDocument(<Clock totalSeconds={62}/>);
-            let $el = $(ReactDOM.findDOMNode(clock));
-            let actualText = $el.find('.clock-text').text();
+    it('should format seconds when min/sec are less than 10', () => {
+      var clock = TestUtils.renderIntoDocument(<Clock/>);
+      var seconds = 61;
+      var expected = '01:01';
+      var actual = clock.formatSeconds(seconds);
 
-            expect(actualText).toBe('01:02');
-        });
+      expect(actual).toBe(expected);
     });
-    describe('formatSeconds', () => {
-        it('should format seconds', () => {
-            let clock = TestUtils.renderIntoDocument(<Clock/>);
-            let seconds = 615;
-            let expected = '10:15';
-            let actual = clock.formatSeconds(seconds);
-
-            expect(actual).toBe(expected);
-        });
-    });
-  
-        it('should format seconds when min/sec are less than 10', () => {
-            let clock = TestUtils.renderIntoDocument(<Clock/>);
-            let seconds = 61;
-            let expected = '01:01';
-            let actual = clock.formatSeconds(seconds);
-
-            expect(actual).toBe(expected);
-        });
-    
+  });
 });
